@@ -130,9 +130,7 @@ class ErgoJrControllers(object):
                         self.ergo.motors[index].goal_position = target[motor]
             else:
                 # Other durations will trigger a threaded control
-                self.ergo.goto_position(target, request.duration.to_sec())
-                self.reset_max_speed()
-
+                self.ergo.goto_position(target, duration)
         return ReachTargetResponse()
 
     def execute(self, trajectory):
